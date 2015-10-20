@@ -155,66 +155,130 @@
             padding-top: 1em;
         }
 
+        blockquote {
+            background-color: bisque;
+            border: darkblue 1px;
+        }
+
 
     </style>
     <meta charset="utf-8">
 </head>
 <body>
 <textarea id="source">
-    class: center, middle
-      <!-- Slideshow Markdown -->
-    [nodejswtf]: img/nodejswtf.png
-    [volto]: img/volto.png
+class: center, middle
+  <!-- Slideshow Markdown -->
+[nodejswtf]: img/nodejswtf.png
+[volto]: img/volto.png
 
-    ![node? js? wtf?][nodejswtf]
+![node? js? wtf?][nodejswtf]
 
-    ### The sexy platform
+### The sexy platform
 
-    # Michele Nasti
+# Michele Nasti
 
-    ### Linux Day, 19/10/2015, UNISA
+### Linux Day, 19/10/2015, UNISA
 
-    ---
+---
 
-    Chi Sono?
-    =========
+Chi Sono?
+=========
 
-    - I was a student @ Unisa, too!
+- I was a student @ Unisa, too!
 
-    --
+--
 
-    - http://michelenasti.com
+- http://michelenasti.com
 
-    - Twitter ([@micnasti](https://twitter.com/micnasti))
+- Twitter ([@micnasti](https://twitter.com/micnasti))
 
-    - Linkedin (https://it.linkedin.com/in/michelenasti)
+- Linkedin (https://it.linkedin.com/in/michelenasti)
 
-    ... e tutti gli altri posti on line (Stack Overflow, Github, ....)
+... e tutti gli altri posti on line (Stack Overflow, Github, ....)
 
-    .right[<img width="20%" src="img/volto.png">]
+.right[<img width="20%" src="img/volto.png">]
 
-    ???
+???
 
-    - mi sono laureato a Salerno nel 2012
-    - lavoro principalmente con Java e in ambito Enterprise
-    - Ho scoperto Javascript per caso e me ne sono innamorato
-    - cerco di bloccare su tutte le tecnologie sia lavorative sia per sfizo, se trovo il tempo ;)
-    - troverete queste slide sul mio sito
+- mi sono laureato a Salerno nel 2012
+- lavoro principalmente con Java e in ambito Enterprise
+- Ho scoperto Javascript per caso e me ne sono innamorato
+- cerco di bloccare su tutte le tecnologie sia lavorative sia per sfizo, se trovo il tempo ;)
+- troverete queste slide sul mio sito
 
-    ---
-    .left-column[
-        ## What is NodeJS?
-    ]
-    .right-column[
-    # linguaggio? framework? piattaforma? SaaS? PaaS?
+---
+.left-column[
+    ## What is NodeJS?
+]
+.right-column[
+## linguaggio? framework? piattaforma? SaaS? PaaS?
 
-    ...Risposta: .strong[Piattaforma]
+...Risposta: .**Piattaforma**
 
-    Estratto dalla home page:
+Estratto dalla home page:
 
-    > Node.js® is a JavaScript runtime built on Chrome's .strong[V8 JavaScript engine]. Node.js uses an
-    .strong[event-driven, non-blocking I/O model] that makes it lightweight and efficient.
-    ]
+> - Node.js® is a JavaScript runtime built on Chrome's **V8 JavaScript engine**. Node.js uses an
+**event-driven, non-blocking I/O model** that makes it lightweight and efficient.
+]
+
+---
+
+.left-column[
+## What is NodeJS?
+- Javascript Runtime
+]
+.right-column[
+## Chrome V8 Javascript Engine
+- quanti altri JS runtime esistono?
+- Ecma2015 (o ES6) dalla versione 4.0
+]
+
+---
+
+name: piccoladeviazione
+
+.left-column[
+## What is NodeJS?
+- Javascript Runtime
+]
+.right-column[
+## Piccola Deviazione su JS
+
+- il linguaggio più diffuso al mondo (gira su ogni browser)
+- è anacronistico disabilitare JS per motivi di sicurezza, e anche progettare siti senza JS
+- *"if something can be built in Javascript, it will eventually be built in Javascript"*
+- **JS non è più il giocattolo dei primi anni 2000. E' un linguaggio VERO e va studiato come tale**
+]
+
+---
+
+template: piccoladeviazione
+.right-column[
+
+### Caratteristiche
+
+- Non è *pure-OOP*, ma **prototype-based**
+- non è *pure-functional*, ma è un **ottimo linguaggio funzionale**
+- è facile (e sbagliato) creare funzioni super-globali
+- browser !== nodejs
+]
+
+---
+
+.left-column[
+## What is NodeJS?
+- Javascript Runtime
+- Event Based
+]
+.right-column[
+## Event-Based
+- architettura a eventi ripresa da quella delle interfacce grafiche
+- browser: "se click su div, fai questo"
+- nodejs: "se conessione in input, scrivi "HTTP 200"
+]
+
+
+
 
 
     </textarea>
