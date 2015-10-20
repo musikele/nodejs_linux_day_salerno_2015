@@ -2,9 +2,54 @@
 <html>
 <head>
     <style type="text/css">
-        @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
-        @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-        @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+    /* latin */
+        @font-face {
+        font-family: 'Droid Serif';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Droid Serif'), local('DroidSerif'), url(fonts/DroidSerif.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+        /* latin-ext */
+        @font-face {
+          font-family: 'Yanone Kaffeesatz';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Yanone Kaffeesatz Regular'), local('YanoneKaffeesatz-Regular'), url(fonts/YanoneKaffeesatz-Regular.woff2) format('woff2');
+          unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+          font-family: 'Yanone Kaffeesatz';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Yanone Kaffeesatz Regular'), local('YanoneKaffeesatz-Regular'), url(fonts/YanoneKaffeesatz-Regular2.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+        /* latin */
+        @font-face {
+          font-family: 'Ubuntu Mono';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Ubuntu Mono'), local('UbuntuMono-Regular'), url(fonts/UbuntuMono400.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+        /* latin */
+        @font-face {
+          font-family: 'Ubuntu Mono';
+          font-style: normal;
+          font-weight: 700;
+          src: local('Ubuntu Mono Bold'), local('UbuntuMono-Bold'), url(fonts/UbuntuMono-Bold700.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+        /* latin */
+        @font-face {
+          font-family: 'Ubuntu Mono';
+          font-style: italic;
+          font-weight: 400;
+          src: local('Ubuntu Mono Italic'), local('UbuntuMono-Italic'), url(fonts/UbuntuMono-Italic.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
 
         body {
             font-family: 'Droid Serif';
@@ -157,7 +202,8 @@
 
         blockquote {
             background-color: bisque;
-            border: darkblue 1px;
+            border: bisque 1px;
+            padding: 3px;
         }
 
 
@@ -201,9 +247,9 @@ Chi Sono?
 ???
 
 - mi sono laureato a Salerno nel 2012
-- lavoro principalmente con Java e in ambito Enterprise
+- lavoro principalmente con Java e in ambito Enterprise, e ultimamente ho lavorato a un progetto con frontend Angular
 - Ho scoperto Javascript per caso e me ne sono innamorato
-- cerco di bloccare su tutte le tecnologie sia lavorative sia per sfizo, se trovo il tempo ;)
+- cerco di studiare al meglio tutte le tecnologie sia lavorative sia per sfizo, se trovo il tempo ;)
 - troverete queste slide sul mio sito
 
 ---
@@ -211,7 +257,7 @@ Chi Sono?
     ## What is NodeJS?
 ]
 .right-column[
-## linguaggio? framework? piattaforma? SaaS? PaaS?
+## linguaggio? libreria? framework? piattaforma? SaaS? PaaS?
 
 ...Risposta: .**Piattaforma**
 
@@ -221,17 +267,44 @@ Estratto dalla home page:
 **event-driven, non-blocking I/O model** that makes it lightweight and efficient.
 ]
 
+???
+
+C'è molta confusione in merito, anche perchè il creatore di Node non si è dato una definizione.
+
+La community però è uniforme nel dire che è una Piattaforma: fornisce un linguaggio di programmazione, Javascript,
+che di suo non permette di accedere a file, socket, etc. (tantomento agli oggetti nel browser: controllate le specifiche!)
+
+Oltre al linguaggio fornisce le librerie per accedere al sistema e un modo per superare il global-space di js
+
+L'autore voleva provare a scrivere una piattaforma, o comunque un modello di programmazione, che non fosse
+il solito "request-based". Ha provato a scrivere qualcosa di simile con C++ ma non ci è riuscito. Quando Chrome
+ha reso disponibile il sorgente del suo motore JS, V8, si è trovato un linguaggio già pronto che rispecchiava
+il modello che aveva in mente.
+
+
+
 ---
 
 .left-column[
 ## What is NodeJS?
-- Javascript Runtime
+
+Javascript Runtime
 ]
 .right-column[
 ## Chrome V8 Javascript Engine
+
 - quanti altri JS runtime esistono?
+
 - Ecma2015 (o ES6) dalla versione 4.0
 ]
+
+???
+
+Esistono tanti runtime di JS: actionScript, Nashorn, Rhino, i browser ...
+
+Da poco è uscita la versione 4.0 di Node che viene fuori da un merge con un fork, io.js
+
+supporta tutte le feature di JS es6 (funzioni arrow, variabili let, modularizzazione...) e le precedenti
 
 ---
 
@@ -239,47 +312,132 @@ name: piccoladeviazione
 
 .left-column[
 ## What is NodeJS?
-- Javascript Runtime
+
+Javascript Runtime
 ]
 .right-column[
 ## Piccola Deviazione su JS
 
 - il linguaggio più diffuso al mondo (gira su ogni browser)
+
 - è anacronistico disabilitare JS per motivi di sicurezza, e anche progettare siti senza JS
+
 - *"if something can be built in Javascript, it will eventually be built in Javascript"*
+
 - **JS non è più il giocattolo dei primi anni 2000. E' un linguaggio VERO e va studiato come tale**
 ]
+
+<img src="img/logo_JavaScript.png" width="30%">
+
+???
+
+Anche l'Enterprise sta sperimentando JS, con Angular, nel frontend
+
+Ai miei tempi i prof dicevano di progettare siti che non richiedessero js, visto che alcuni per motivi di sicurezza
+lo avrebbero disabilitato. Se ve lo suggeriscono ancora cambiate prof :) Scherzi a parte adesso è totalmente
+irrealistico pensare a un mondo senza JS.
+
+Ultimamente con JS stanno scrivendo di tutto: sw per l'editing web, come Atom di Github, Server di continuous
+integration e di error-checking, linter, task executors, web servers, il tool con cui ho scritto le slide... !!!
+
+Tutto questo rende difficile studiare JS. Online si trova di tutto, ma è tutto disorganizzatissimo. Io per primo
+faccio molta difficoltà ad aggiornarmi. Ma esistono ottimi libri e ottimi corsi se si vuole studiare in manera più
+strutturata.
+
+La conoscenza di JS potrà essere applicata sia su backend che su frontend!!
+
+
 
 ---
 
 template: piccoladeviazione
 .right-column[
-
-### Caratteristiche
-
-- Non è *pure-OOP*, ma **prototype-based**
-- non è *pure-functional*, ma è un **ottimo linguaggio funzionale**
-- è facile (e sbagliato) creare funzioni super-globali
-- browser !== nodejs
+ ### Caratteristiche
+ - Non è *pure-OOP*, ma **prototype-based**
+ - non è *pure-functional*, ma è un **ottimo linguaggio funzionale**
+ - _purtroppo_ è facile (e sbagliato) creare funzioni super-globali
+ - browser !== nodejs
 ]
+
+???
+
+Js ha gli oggetti, ma non sono così importanti come lo sono in Java. Bisogna conoscerli
+
+Invece, Un linguaggio funzionale considera le funzioni come "first class object", quindi una funzione può prendere in input un'altra funzione, può ovviamente chiamare un'altra funzione, e può restituire una funzione (che può essere eseguita più tardi!)
+
+JS è stato scritto in 10 giorni per il primo netscape, e nemmeno l'autore si immaginava tutto il successo che ha avuto. Sta sopravvivendo da 30 anni
+
+Il browser usa JS per creare pagine dinamiche; non si deve pensare di usare node per gli stessi compiti. Non si usa JQuery su node
 
 ---
 
 .left-column[
 ## What is NodeJS?
-- Javascript Runtime
-- Event Based
+
+Javascript Runtime
+
+Event Based
 ]
 .right-column[
 ## Event-Based
+
 - architettura a eventi ripresa da quella delle interfacce grafiche
+
 - browser: "se click su div, fai questo"
+
 - nodejs: "se conessione in input, scrivi "HTTP 200"
 ]
 
+???
 
+architetture ad eventi viene  dalle interfacce grafiche 
 
+il server viene programmato come se dovesse rispondere ad eventi; quando avviene qualcosa,
+ è lui a richiamare la funzione adeguata. Nel frattempo potrà gestire altre richieste o fare altro. 
 
+Questo approccio, insieme alla programmazione funzionale, ha spinto il parallelismo a livelli mai visti! 
+
+chart su nginx vs apache?
+
+---
+
+.left-column[
+## What is NodeJS?
+
+Javascript Runtime
+
+Event Based
+
+Non-Blocking
+]
+.right-column[
+## Non Blocking Model 
+
+- tutto è asincrono...
+
+- ma c'è un solo thread per JS
+
+<img src="img/eventloop.png" width="100%"> 
+
+]
+ 
+???
+
+Cosa vuol dire "single threaded"? tutto il codice js viene eseguito all'interno di un singolo thread. Attenzione! non ho detto che TUTTO il codice viene eseguito su un singolo thread ... solo il codice js. Quando inviate un messaggio sulla rete, o aspettate una risposta da un DB, Node fa altro. 
+
+---
+
+.left-column[
+## Mani al codice!
+
+]
+.right-column[
+## Non Blocking Model 
+
+    prova
+    questo viene visto come codice? 
+
+]
 
     </textarea>
 <script src="bower_components/remark/out/remark.js">
