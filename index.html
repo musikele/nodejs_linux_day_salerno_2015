@@ -209,6 +209,7 @@ Chi Sono?
 - troverete queste slide sul mio sito
 
 ---
+
 .left-column[
     ## What is NodeJS?
 ]
@@ -236,9 +237,34 @@ il solito "request-based". Ha provato a scrivere qualcosa di simile con C++ ma n
 ha reso disponibile il sorgente del suo motore JS, V8, si è trovato un linguaggio già pronto che rispecchiava
 il modello che aveva in mente.
 
+---
 
+Vantaggi
+========
+
+- Il paradigma funzionale è **efficiente e reattivo**
+
+- è un modo di pensare diverso, e quando si impara qualcosa di diverso non sai mai quando ti potrà servire (ma poi ti serve)
+
+- aziende a tutti i livelli (Paypal, Ibm, Amazon, Ebay, Google...) stanno investendo in Node e stanno realizzando software con Node
+
+- Approccio **MEAN (MongoDB, ExpressJS, AngularJS, NodeJS)**
 
 ---
+
+Svantaggi
+=========
+
+- è enterprise level? (serve MOLTO testing)
+
+- è adatto a sistemi software molto complessi? (il codice è _ancora_ organizzato dopo 20k linee? ) 
+
+- non adatto a fare il sito web della salumeria di paese (ma se lo fate imparate tante cose)
+
+  - è invece adatto per realizzare app che devono gestire molti dati in tempo reale (dashboard, backend di videogames, ...)
+
+---
+
 
 .left-column[
 ## What is NodeJS?
@@ -273,7 +299,7 @@ Javascript Runtime
 <img src="img/logo_JavaScript.png" width="100%">
 ]
 .right-column[
-## Piccola Deviazione su JS
+## Addentriamoci in JS !
 
 - il linguaggio più diffuso al mondo (gira su ogni browser)
 
@@ -409,41 +435,6 @@ console.log('Hello World!');
 
 ---
 
-template: helloworld
-
-.right-column[
-
-## Programmazione Funzionale (ES5)
-
-```javascript
-var salutaColCiao = function() {
-   return "ciao";  
-};
- 
-var salutaConNome = function(saluto, nome) {
-   saluto() + " " + nome;
-}
- 
-//scriverà "ciao Michele" 
-salutaConNome(salutaColCiao , "Michele"); 
-```
-
-]
-
-???
-
-un esempio di programmazione funzionale: 
-
-sto passando la funzione salutaColCiao come un argomento qualsiasi (Senza parentesi) 
-
-per come è fatto javascript, se saluto() non è una funzione verrà lanciata un'eccezione
-
-In ES6 ci sono le arrow function che è molto simile a java 8
-
-
-
----
-
 .left-column[
 ## Echo Server con Node
 
@@ -476,55 +467,26 @@ testiamolo con
 ```curl -d 'ritorno al futuro!' http://localhost:8080```
 ]
 
+???
+
+- 10 righe di codice, tanta roba! 
+
+- parlare degli eventi "data" e "end" 
+
+- modulo http (di node!) quello che avviene qui è asincrono 
+ 
 ---
 
-Vantaggi
-========
+class: center
 
-- Il paradigma funzionale è **efficiente e reattivo**
+GRAZIE
+====== 
 
-- si possono lanciare più istanze del server e mettere un load-balancer per sfruttare i vostri dual-quad-octa-hexa core
+## Facciamo un Javascript User Group ? 
 
-- il load balancer si può scrivere con node ;)
+<img src="img/cat_event_loop.gif" width="70%">
 
-- è un modo di pensare diverso, e quando si impara qualcosa di diverso non sai mai quando ti potrà servire (ma poi ti serve)
-
-- la teoria assicura che il castello può rimanere in piedi: studiare approfonditamente la teoria funzionale (esame di TC2?)
-
-- aziende a tutti i livelli (Paypal, Ibm, Amazon, Ebay, Google...) stanno investendo in Node e stanno realizzando software con Node
-
----
-
-Svantaggi
-=========
-
-- è enterprise level? (serve MOLTO testing)
-
-- è adatto a sistemi software molto complessi? (il codice è _ancora_ organizzato dopo 20k linee? ) 
-
-- non adatto a fare il sito web della salumeria di paese
-
-- è invece adatto per realizzare app che devono gestire molti dati in tempo reale (dashboard, backend di videogames, ...)
-  
-  - questo avrei dovuto scriverlo in vantaggi
-
-
----
-
-Non di solo Server vive l'Uomo
-==============================
-
-così come esiste LAMP, esiste **MEAN** : 
-
-- MongoDB 
-
-- ExpressJS 
-
-- AngularJS 
-
-- NodeJS
-
----
+The node Events loop
 
     </textarea>
 <script src="bower_components/remark/out/remark.js">
