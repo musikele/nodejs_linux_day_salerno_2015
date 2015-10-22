@@ -158,6 +158,12 @@
         padding-top: 1em;
       }
 
+      blockquote {
+        background-color: lightblue;
+        border-color: black;
+        border-radius: 10px;
+        padding: 10px;
+      }
 
     </style>
     <meta charset="utf-8">
@@ -184,8 +190,6 @@ Chi Sono?
 
 - I was a student @ Unisa, too!
 
---
-
 - http://michelenasti.com
 
 - Twitter ([@micnasti](https://twitter.com/micnasti))
@@ -211,22 +215,21 @@ Chi Sono?
 .right-column[
 ## linguaggio? libreria? framework? piattaforma? SaaS? PaaS?
 
-...Risposta: .**Piattaforma**
+...Risposta: **Piattaforma**
 
 Estratto dalla home page:
 
-> - Node.js® is a JavaScript runtime built on Chrome's **V8 JavaScript engine**. Node.js uses an
+> Node.js® is a JavaScript runtime built on Chrome's **V8 JavaScript engine**. Node.js uses an
 **event-driven, non-blocking I/O model** that makes it lightweight and efficient.
 ]
 
 ???
 
-C'è molta confusione in merito, anche perchè il creatore di Node non si è dato una definizione.
+creatore di Node non ha dato una definizione.
 
-La community però è uniforme nel dire che è una Piattaforma: fornisce un linguaggio di programmazione, Javascript,
-che di suo non permette di accedere a file, socket, etc. (tantomento agli oggetti nel browser: controllate le specifiche!)
+è una Piattaforma: fornisce un linguaggio di programmazione, Javascript, che non permette di accedere a file, socket, etc. (tantomento agli oggetti nel browser: controllate le specifiche!)
 
-Oltre al linguaggio fornisce le librerie per accedere al sistema e un modo per superare il global-space di js
+Oltre al linguaggio fornisce le librerie per accedere al sistema operativo
 
 L'autore voleva provare a scrivere una piattaforma, o comunque un modello di programmazione, che non fosse
 il solito "request-based". Ha provato a scrivere qualcosa di simile con C++ ma non ci è riuscito. Quando Chrome
@@ -247,7 +250,7 @@ Javascript Runtime
 
 - quanti altri JS runtime esistono?
 
-- Ecma2015 (o ES6) dalla versione 4.0
+- Ecma2015 (o ES6) con Node 4.0
 ]
 
 ???
@@ -266,6 +269,8 @@ name: piccoladeviazione
 ## What is NodeJS?
 
 Javascript Runtime
+
+<img src="img/logo_JavaScript.png" width="100%">
 ]
 .right-column[
 ## Piccola Deviazione su JS
@@ -279,35 +284,37 @@ Javascript Runtime
 - **JS non è più il giocattolo dei primi anni 2000. E' un linguaggio VERO e va studiato come tale**
 ]
 
-<img src="img/logo_JavaScript.png" width="30%">
-
 ???
 
 Anche l'Enterprise sta sperimentando JS, con Angular, nel frontend
 
-Ai miei tempi i prof dicevano di progettare siti che non richiedessero js, visto che alcuni per motivi di sicurezza
-lo avrebbero disabilitato. Se ve lo suggeriscono ancora cambiate prof :) Scherzi a parte adesso è totalmente
-irrealistico pensare a un mondo senza JS.
+Ai miei tempi i prof dicevano di progettare siti che non richiedessero js
 
-Ultimamente con JS stanno scrivendo di tutto: sw per l'editing web, come Atom di Github, Server di continuous
-integration e di error-checking, linter, task executors, web servers, il tool con cui ho scritto le slide... !!!
+Ultimamente con JS stanno scrivendo di tutto
 
-Tutto questo rende difficile studiare JS. Online si trova di tutto, ma è tutto disorganizzatissimo. Io per primo
-faccio molta difficoltà ad aggiornarmi. Ma esistono ottimi libri e ottimi corsi se si vuole studiare in manera più
-strutturata.
+Tutto questo rende difficile studiare JS. Online si trova di tutto, ma è tutto disorganizzatissimo. 
 
-La conoscenza di JS potrà essere applicata sia su backend che su frontend!!
-
-
+Con Node la conoscenza di JS potrà essere applicata sia su backend che su frontend!!
 
 ---
+.left-column[
+## What is NodeJS?
 
-template: piccoladeviazione
+Javascript Runtime
+
+<img src="img/logo_JavaScript.png" width="100%">
+]
 .right-column[
- ### Caratteristiche
+ ## Caratteristiche di JS
+
  - Non è *pure-OOP*, ma **prototype-based**
+ 
  - non è *pure-functional*, ma è un **ottimo linguaggio funzionale**
- - _purtroppo_ è facile (e sbagliato) creare funzioni super-globali
+ 
+ - _purtroppo_ è facile (e sbagliato) creare funzioni super-globali:
+  
+   - la *community* ha risolto queste problematiche e le soluzioni sono state applicate anche su browser e in ES6
+ 
  - browser !== nodejs
 ]
 
@@ -315,9 +322,9 @@ template: piccoladeviazione
 
 Js ha gli oggetti, ma non sono così importanti come lo sono in Java. Bisogna conoscerli
 
-Invece, Un linguaggio funzionale considera le funzioni come "first class object", quindi una funzione può prendere in input un'altra funzione, può ovviamente chiamare un'altra funzione, e può restituire una funzione (che può essere eseguita più tardi!)
+Un linguaggio funzionale considera le funzioni come "first class object"
 
-JS è stato scritto in 10 giorni per il primo netscape, e nemmeno l'autore si immaginava tutto il successo che ha avuto. Sta sopravvivendo da 30 anni
+JS è stato scritto in 10 giorni per il primo netscape, e nemmeno l'autore si immaginava tutto il successo che ha avuto. Dopo 30 anni è ancora Cool ! 
 
 Il browser usa JS per creare pagine dinamiche; non si deve pensare di usare node per gli stessi compiti. Non si usa JQuery su node
 
@@ -338,6 +345,8 @@ Event Based
 - browser: "se click su div, fai questo"
 
 - nodejs: "se conessione in input, scrivi "HTTP 200"
+
+<img src="img/nginx-apache-reqs-sec.png" width="100%">
 ]
 
 ???
@@ -349,7 +358,9 @@ il server viene programmato come se dovesse rispondere ad eventi; quando avviene
 
 Questo approccio, insieme alla programmazione funzionale, ha spinto il parallelismo a livelli mai visti! 
 
-chart su nginx vs apache?
+Ma come fa un server con un solo thread ad essere parallelo? 
+
+chart su nginx vs apache : mostrare pure che la memoria di nginx non aumenta
 
 ---
 
@@ -367,7 +378,7 @@ Non-Blocking
 
 - tutto è asincrono...
 
-- ma c'è un solo thread per JS
+- ...e c'è un solo thread per JS
 
 <img src="img/eventloop.png" width="100%"> 
 
@@ -375,7 +386,9 @@ Non-Blocking
  
 ???
 
-Cosa vuol dire "single threaded"? tutto il codice js viene eseguito all'interno di un singolo thread. Attenzione! non ho detto che TUTTO il codice viene eseguito su un singolo thread ... solo il codice js. Quando inviate un messaggio sulla rete, o aspettate una risposta da un DB, Node fa altro. 
+Cosa vuol dire "single threaded"? tutto il codice js viene eseguito all'interno di un singolo thread. 
+
+le operazioni di IO, che sono quelle più lente, vengono delegate ad altri.  
 
 ---
 
@@ -407,10 +420,7 @@ var salutaColCiao = function() {
    return "ciao";  
 };
  
-//nota: sto passando la funzione come un argomento qualsiasi!
 var salutaConNome = function(saluto, nome) {
-   //per come è fatto javascript, se saluto() non è  
-   //una funzione verrà lanciata un'eccezione
    saluto() + " " + nome;
 }
  
@@ -420,6 +430,18 @@ salutaConNome(salutaColCiao , "Michele");
 
 ]
 
+???
+
+un esempio di programmazione funzionale: 
+
+sto passando la funzione salutaColCiao come un argomento qualsiasi (Senza parentesi) 
+
+per come è fatto javascript, se saluto() non è una funzione verrà lanciata un'eccezione
+
+In ES6 ci sono le arrow function che è molto simile a java 8
+
+
+
 ---
 
 .left-column[
@@ -428,7 +450,7 @@ salutaConNome(salutaColCiao , "Michele");
 ]
 
 .right-column[
-## Il nostro primo server
+## Il nostro pappagallo-server
 
 ```javascript
 //echoServer.js
@@ -448,8 +470,61 @@ http.createServer(function(request,response){
 ```
 
 lanciamo il server con ```node echoServer.js```
- ]
 
+testiamolo con 
+
+```curl -d 'ritorno al futuro!' http://localhost:8080```
+]
+
+---
+
+Vantaggi
+========
+
+- Il paradigma funzionale è **efficiente e reattivo**
+
+- si possono lanciare più istanze del server e mettere un load-balancer per sfruttare i vostri dual-quad-octa-hexa core
+
+- il load balancer si può scrivere con node ;)
+
+- è un modo di pensare diverso, e quando si impara qualcosa di diverso non sai mai quando ti potrà servire (ma poi ti serve)
+
+- la teoria assicura che il castello può rimanere in piedi: studiare approfonditamente la teoria funzionale (esame di TC2?)
+
+- aziende a tutti i livelli (Paypal, Ibm, Amazon, Ebay, Google...) stanno investendo in Node e stanno realizzando software con Node
+
+---
+
+Svantaggi
+=========
+
+- è enterprise level? (serve MOLTO testing)
+
+- è adatto a sistemi software molto complessi? (il codice è _ancora_ organizzato dopo 20k linee? ) 
+
+- non adatto a fare il sito web della salumeria di paese
+
+- è invece adatto per realizzare app che devono gestire molti dati in tempo reale (dashboard, backend di videogames, ...)
+  
+  - questo avrei dovuto scriverlo in vantaggi
+
+
+---
+
+Non di solo Server vive l'Uomo
+==============================
+
+così come esiste LAMP, esiste **MEAN** : 
+
+- MongoDB 
+
+- ExpressJS 
+
+- AngularJS 
+
+- NodeJS
+
+---
 
     </textarea>
 <script src="bower_components/remark/out/remark.js">
